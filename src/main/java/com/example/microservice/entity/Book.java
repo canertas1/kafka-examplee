@@ -5,13 +5,14 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+
 @Data
-@Document
+@Document(collection = "book")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Book {
-    @Id
-        private int id;
+        @Id
+        private String id;
         private String bookName;
         private String writer;
         private int bookStock;

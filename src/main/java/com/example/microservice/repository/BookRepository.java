@@ -2,15 +2,16 @@ package com.example.microservice.repository;
 
 import com.example.microservice.entity.Book;
 import org.springframework.data.mongodb.repository.MongoRepository;
-
-import java.util.List;
-
-
-public interface BookRepository extends MongoRepository<Book,Integer> {
+import java.util.Optional;
 
 
-  Book findById(int id);
+public interface BookRepository extends MongoRepository<Book,String> {
 
-  Book findByBookName(String name);
+
+  Optional<Book> findById(String id );
+  Optional<Book> findByBookName(String bookName);
+
+
+
 
 }

@@ -1,4 +1,5 @@
 package com.example.microservice.controller;
+import com.example.microservice.dto.BookDto;
 import com.example.microservice.entity.Book;
 import com.example.microservice.service.BookService;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,13 @@ public class BookController {
         this.bookService.save(book);
 
         return new ResponseEntity<>("the book has been saved", HttpStatus.OK);
+    }
+
+    @PostMapping("/update")
+    public ResponseEntity<String> update(@RequestBody BookDto bookDto){
+
+        this.bookService.updateBook(bookDto);
+        return new ResponseEntity<>("updated",HttpStatus.OK);
     }
 
     @GetMapping("/get/{name}")
